@@ -121,11 +121,11 @@ void testSmallGJ(uint l_size, uint r_size, uint sel_fac)
     std::sort(test_res.begin(), test_res.end(), [](const RowRes &t1, const RowRes &t2) { return t1.first.key < t2.first.key || (t1.first.key == t2.first.key && t1.first.other < t2.first.other); });
     assert(res == test_res && "Test for sortMergeLess failed");
 
-    test_res = prtLRSmallSimple(L, R, SumNAgg<int>());
+    test_res = prtLRLessSimple(L, R, SumNAgg<int>());
     std::sort(test_res.begin(), test_res.end(), [](const RowRes &t1, const RowRes &t2) { return t1.first.key < t2.first.key || (t1.first.key == t2.first.key && t1.first.other < t2.first.other); });
-    assert(res == test_res && "Test for prtLRSmallSimple failed");
+    assert(res == test_res && "Test for prtLRLessSimple failed");
 
-    test_res = prtLRSmall(L, R, SumNAgg<int>());
+    test_res = prtLRLess(L, R, SumNAgg<int>());
     std::sort(test_res.begin(), test_res.end(), [](const RowRes &t1, const RowRes &t2) { return t1.first.key < t2.first.key || (t1.first.key == t2.first.key && t1.first.other < t2.first.other); });
-    assert(res == test_res && "Test for prtLRSmall failed");
+    assert(res == test_res && "Test for prtLRLess failed");
 }

@@ -5,16 +5,11 @@ OBJDIR = build
 
 OBJECTS = $(OBJDIR)/testrunner.o $(OBJDIR)/tests.o $(OBJDIR)/util.o
 
-all: CCFLAGS += -O3 -Wall -Wextra
+all: CCFLAGS += -Wall -Wextra
 all: groupjoin
-
-warn: CCFLAGS += -Wall -Wextra
-warn: groupjoin
 
 debug: CCFLAGS += -g
 debug: groupjoin
-
-unop: groupjoin
 
 groupjoin: $(OBJDIR) $(OBJECTS)
 	$(CC) $(OBJECTS) -ltbb -lpthread -o gjtest
